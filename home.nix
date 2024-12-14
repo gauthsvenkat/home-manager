@@ -81,7 +81,6 @@ in
         plugins = [
           "docker"
           "docker-compose"
-          "sudo"
           "git"
           "fzf"
           "zoxide"
