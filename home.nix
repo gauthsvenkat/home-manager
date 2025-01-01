@@ -5,6 +5,13 @@ let
   homeDirectory = "/home/${username}";
 in
 {
+  nix = {
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 30d";
+    };
+  };
+
   targets.genericLinux.enable = true;
 
   fonts.fontconfig.enable = true;
@@ -29,7 +36,6 @@ in
       nixfmt-rfc-style
       just
       ttyper
-      chezmoi
     ];
   };
 
@@ -42,12 +48,7 @@ in
     ripgrep.enable = true;
     lazygit.enable = true;
     direnv.enable = true;
-    yazi.enable = true;
-
-    nh = {
-      enable = true;
-      flake = "${homeDirectory}/.config/home-manager";
-    };
+    nh.enable = true;
 
     zoxide = {
       enable = true;
@@ -91,7 +92,6 @@ in
         lt = "${pkgs.eza}/bin/eza --tree --icons --git --level=3";
         v = "${pkgs.neovim}/bin/nvim";
         b = "${pkgs.bat}/bin/bat";
-        y = "${pkgs.yazi}/bin/yazi";
         lg = "${pkgs.lazygit}/bin/lazygit";
       };
       initExtra = ''

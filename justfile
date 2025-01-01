@@ -1,2 +1,2 @@
 doit action='switch':
-  nh home {{action}}
+  nh home {{action}} .
