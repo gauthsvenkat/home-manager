@@ -36,6 +36,7 @@ in
       nixfmt-rfc-style
       just
       ttyper
+      cachix
     ];
   };
 
